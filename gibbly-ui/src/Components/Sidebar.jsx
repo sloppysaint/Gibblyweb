@@ -1,6 +1,8 @@
 import React from 'react';
 import pencilImage from './pencil.png';
 import discover from './images.png';
+import {Link} from 'react-router-dom';
+
 
 const Sidebar = () => {
   return (
@@ -24,8 +26,13 @@ const Sidebar = () => {
             </button></li>
           <li className="mb-4"><button className="w-full text-justified">My Library</button></li>
           <li className="mb-4"><button className="w-full text-justified">Classes</button></li>
-          <li className="mb-4"><button className="w-full text-justified">Settings</button></li>
-          <li className="mb-4"><button className="w-full text-justified">Upgrade</button></li>
+          <li className="mb-4"><button className="w-full text-justified" >
+            <Link to = './Pages/Settingcard'>Settings</Link></button></li>
+
+          <li className="mb-4"><button className="w-full text-justified">
+          <Link to = './Pages/Upgrade'>
+            Upgrade 
+            </Link></button></li>
         </ul>
       </nav>
     </div>
