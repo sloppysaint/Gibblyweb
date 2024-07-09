@@ -12,8 +12,8 @@ const App = () => {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/Dashboard" element={<Dashboard />} /> */}
+          <Route path="/" element={<Dashboard />} />
           <Route path="/pages/Settingcard" element={<Settings />} />
           <Route path="/pages/Upgrade" element={<Upgrade />} />
           
