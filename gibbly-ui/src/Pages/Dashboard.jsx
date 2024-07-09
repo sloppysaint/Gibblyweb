@@ -2,7 +2,17 @@
 import React, { useState } from 'react';
 import QuizCard from '../Components/QuizCard';
 import Sidebar from '../Components/Sidebar';
-import Logo from '../assets/logo.png'; // Make sure to update the path if it's different
+
+import { Link } from 'react-router-dom';
+import CreateIcon from '@mui/icons-material/Create';
+import ExploreIcon from '@mui/icons-material/Explore';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import SchoolIcon from '@mui/icons-material/School';
+import SettingsIcon from '@mui/icons-material/Settings';
+import UpgradeIcon from '@mui/icons-material/Upgrade';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import Logo from '../assets/logo.png';
 
 const Dashboard = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -30,26 +40,101 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="p-4">
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className='flex justify-between items-center mb-6'>
-        <img src={Logo} alt="Gibbly Logo" className="h-16" />
-        <button 
-          className="bg-[#008a19] text-white text-lg h-9 py-0 px-4 rounded-lg hover:bg-[#14b80e] flex items-center space-x-2"
+    // <div className="p-4">
+    //   <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+    //   <div className='flex justify-between items-center mb-6'>
+    //     <img src={Logo} alt="Gibbly Logo" className="h-16" />
+        
+    //   </div>
+    <div className='grid grid-cols-10 gap-4'>
+      <div className='col-span-1 md:hidden'>
+        <button onClick={() => setIsSidebarOpen(true)} className="p-2 text-gray-600 hover:text-gray-900">
+          <MenuIcon fontSize="large" />
+        </button>
+      </div>
+      <div className={`fixed inset-y-0 left-0 w-45 bg-white shadow-lg p-4 overflow-y-auto transition-transform transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:relative md:w-40`}>
+        <div className="flex justify-between items-center mb-4">
+          <img src={Logo} alt="Gibbly Logo" className="h-16" />
+          <button onClick={() => setIsSidebarOpen(false)} className="md:hidden p-2 text-gray-600 hover:text-gray-900">
+            <CloseIcon fontSize="large" />
+          </button>
+        </div>
+        <nav>
+          <ul>
+            <li className="mb-4">
+              <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
+                <div className="flex flex-col items-center">
+                  <CreateIcon />
+                  <p className="text-orange-600 font-bold">Create</p>
+                </div>
+              </button>
+            </li>
+            <li className="mb-4">
+              <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
+                <div className="flex flex-col items-center">
+                  <ExploreIcon />
+                  <p className="text-orange-600">Discover</p>
+                </div>
+              </button>
+            </li>
+            <li className="mb-4">
+              <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
+                <div className="flex flex-col items-center">
+                  <LibraryBooksIcon />
+                  <p className="text-orange-600">My Library</p>
+                </div>
+              </button>
+            </li>
+            <li className="mb-4">
+              <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
+                <div className="flex flex-col items-center">
+                  <SchoolIcon />
+                  <p className="text-orange-600">Classes</p>
+                </div>
+              </button>
+            </li>
+            <li className="mb-4">
+              <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
+                <div className="flex flex-col items-center">
+                  <SettingsIcon />
+                  <p className="text-orange-600">Settings</p>
+                </div>
+              </button>
+            </li>
+            <li className="mb-4">
+              <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
+                <div className="flex flex-col items-center">
+                  <UpgradeIcon />
+                  <p className="text-yellow-600 font-bold">Upgrade</p>
+                </div>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className='col-span-1'></div>
+      <div className='col-span-8'>
+        <div className='py-5 justify-end flex'>
+      <button 
+          className="bg-[#008a19] text-white w-relative  text-lg h-9 py-0  px-4 rounded-lg hover:bg-[#14b80e] flex items-center space-x-2"
           onClick={toggleSidebar}
         >
           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 640 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
             <path d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z"></path>
           </svg>
-          <span>Open Sidebar</span>
+          <span>Buy Tokens</span>
         </button>
-      </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        </div>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '>
+        
+      
         {quizzes.map((quiz, index) => (
           <QuizCard key={index} title={quiz.title} questions={quiz.questions} image={quiz.image} />
         ))}
+        </div>
       </div>
     </div>
+  
   );
 };
 

@@ -6,6 +6,9 @@ import Settings from './Pages/Settingcard';
 import Upgrade from './Pages/Upgrade';
 import Home from './Pages/Home';
 import Navbar from './Pages/Navbar';
+import Class from './Pages/Class'
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 
 const App = () => {
   return (
@@ -16,6 +19,9 @@ const App = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/pages/Settingcard" element={<Settings />} />
           <Route path="/pages/Upgrade" element={<Upgrade />} />
+          <Route path="/pages/Class" element={<Class />} />
+          <Route path="/pages/Login" element={<Login />} />
+          <Route path="/pages/Register" element={<Register />} />
           
         </Routes>
       </Layout>
