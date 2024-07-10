@@ -1,0 +1,68 @@
+canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: visible !important;
+}
+
+.questionaire {
+    position: relative;
+    right: 100px;
+}
+
+.question {
+    font-weight: 900;
+    position: relative;
+    right: 10vw;
+    white-space: nowrap; /* Corrected property name */
+}
+
+
+@media only screen and (max-width: 965px) {
+    .questionaire {
+        display: grid;
+        grid-template-columns: auto !important;
+    }
+
+    .mcqbutton {
+        width: 80vw !important;
+        position: relative !important;
+        right: 1vw;
+    }
+
+    .question {
+        position: relative;
+        right: 15vw;
+        white-space: nowrap;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .mcqbutton {
+        width: 80vw !important;
+        position: relative !important;
+        left: 4vw;
+    }
+
+    .question {
+        position: relative;
+        right: 35vw !important;
+        white-space: nowrap;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    .mcqbutton {
+        width: 90vw !important;
+        position: relative !important;
+        left: 4vw;
+    }
+
+    .question {
+        position: relative;
+        right: 35vw !important;
+        white-space: nowrap;
+    }
+}
