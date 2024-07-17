@@ -13,7 +13,7 @@ import Logo from "../assets/logo.png";
 const PricingTable = () => {
   const [isYearly, setIsYearly] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  
   return (
     <div className="grid grid-cols-10 gap-4">
       <div className="col-span-1 md:hidden">
@@ -191,7 +191,12 @@ const PricingTable = () => {
             <p className="text-center mb-6">
               charged {isYearly ? "yearly" : "monthly"}
             </p>
-            <Link to="/credit">
+            <Link
+              to={{
+                pathname: '/credit',
+                state: { price: isYearly ? "8.99" : "11.99", isYearly: isYearly }
+              }}
+            >
               <button className="bg-blue-500 text-white py-2 px-4 rounded w-full mb-4">
                 Upgrade
               </button>
@@ -239,7 +244,12 @@ const PricingTable = () => {
             <p className="text-center mb-6">
               per license, per month, charged {isYearly ? "yearly" : "monthly"}
             </p>
-            <Link to="/credit">
+            <Link
+              to={{
+                pathname: '/credit',
+                state: { price: isYearly ? "8.99" : "11.99", isYearly: isYearly }
+              }}
+            >
               <button className="bg-purple-500 text-white py-2 px-4 rounded w-full mb-4">
                 Upgrade
               </button>

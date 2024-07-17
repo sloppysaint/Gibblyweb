@@ -17,21 +17,18 @@ const userschema = new mongoose.Schema({
   },
   title: {
     type: String,
-    
   },
   description: {
     type: String,
-    
   },
   questions: [
     {
       question: {
         type: String,
         required: true,
-        
       },
-      mcq:{
-          type:[String]
+      mcq: {
+        type: [String],
       },
       answer: [
         {
@@ -39,7 +36,6 @@ const userschema = new mongoose.Schema({
           required: true,
         },
       ],
-     
     },
   ],
 });

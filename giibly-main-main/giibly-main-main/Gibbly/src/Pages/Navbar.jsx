@@ -9,9 +9,6 @@ const Navbar = () => {
         <img src={Logo} alt="Gibbly Logo" className="h-16" />
         <nav className="flex items-center">
 
-
-
-
           <button onClick={(e) => {
             window.location.href = "mailto:support@gibbly.app";
             e.preventDefault();
