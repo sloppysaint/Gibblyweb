@@ -163,7 +163,7 @@ const Settings = () => {
           <MenuIcon fontSize="large" />
         </button>
       </div>
-      <div 
+      <div
         className={`fixed inset-y-0 left-0 w-45 bg-white shadow-lg p-4 overflow-y-auto transition-transform transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:relative md:w-40`}
@@ -195,7 +195,7 @@ const Settings = () => {
             <li className="mb-4">
               <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
                 <div
-                  onClick={() => (window.location.href = "/loader")}
+                  onClick={() => (window.location.href = "/home")}
                   className="flex flex-col items-center"
                 >
                   <ExploreIcon />
@@ -260,7 +260,7 @@ const Settings = () => {
                 <span className="w-1/3 font-medium">Username:</span>
                 <span className="w-2/3">user20681422015373</span>
               </div>
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <span className="w-1/3 font-medium">Role:</span>
                 <select className="w-2/3 p-2 border rounded">
                   <option>Teacher</option>
@@ -268,7 +268,7 @@ const Settings = () => {
                   <option>Professional</option>
                   <option>Personal</option>
                 </select>
-              </div>
+              </div> */}
               <div className="flex items-center">
                 <span className="w-1/3 font-medium">Output Language:</span>
                 <select className="w-2/3 p-2 border rounded">
@@ -296,7 +296,12 @@ const Settings = () => {
                 <div className="w-2/3 flex items-center">
                   <span>Starter</span>
                   <button className="ml-4 bg-blue-500 text-white px-3 py-1 rounded">
-                  <Link to="/pages/Upgrade" style={{textDecoration:"none"}} >Upgrade </Link> 
+                    <Link
+                      to="/pages/Upgrade"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Upgrade{" "}
+                    </Link>
                   </button>
                 </div>
               </div>
@@ -307,8 +312,10 @@ const Settings = () => {
                   <span>Bonus: 0</span>
                 </div>
               </div>
-              <button   className="mt-6 bg-red-500 text-white px-4 py-2 rounded">
-                <Link to="/" style={{textDecoration:"none"}} >Sign Out </Link> 
+              <button className="mt-6 bg-red-500 text-white px-4 py-2 rounded">
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  Sign Out{" "}
+                </Link>
               </button>
             </div>
           </div>

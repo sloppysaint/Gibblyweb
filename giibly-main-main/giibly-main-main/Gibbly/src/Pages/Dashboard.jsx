@@ -131,7 +131,7 @@ const Dashboard = () => {
           <MenuIcon fontSize="large" />
         </button>
       </div>
-      <div 
+      <div
         className={`fixed inset-y-0 left-0 w-45 bg-white shadow-lg p-4 overflow-y-auto transition-transform transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:relative md:w-40`}
@@ -147,7 +147,7 @@ const Dashboard = () => {
             <CloseIcon fontSize="large" />
           </button>
         </div>
-        <nav  >
+        <nav>
           <ul>
             <li className="mb-4">
               <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
@@ -162,19 +162,18 @@ const Dashboard = () => {
             </li>
             <li className="mb-4">
               <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
-                <div
-               
-                  className="flex flex-col items-center"
-                >
+                <div className="flex flex-col items-center">
                   <ExploreIcon />
-                  <Link to="#" className="text-orange-600">Discover</Link>
+                  <Link to="#" className="text-orange-600">
+                    Discover
+                  </Link>
                 </div>
               </button>
             </li>
             <li className="mb-4">
               <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
                 <div
-                  onClick={() => (window.location.href = "/loader")}
+                  onClick={() => (window.location.href = "/pages/Dashboard")}
                   className="flex flex-col items-center"
                 >
                   <LibraryBooksIcon />

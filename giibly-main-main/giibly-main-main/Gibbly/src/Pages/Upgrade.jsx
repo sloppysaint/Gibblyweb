@@ -24,9 +24,11 @@ const PricingTable = () => {
           <MenuIcon fontSize="large" />
         </button>
       </div>
-      <div style={{ zIndex: 2 }}
-        className={`fixed inset-y-0 left-0 w-45 bg-white shadow-lg p-4 overflow-y-auto transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 md:relative md:w-40`}
+      <div
+        style={{ zIndex: 2 }}
+        className={`fixed inset-y-0 left-0 w-45 bg-white shadow-lg p-4 overflow-y-auto transition-transform transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:relative md:w-40`}
       >
         <div className="flex justify-between items-center mb-4">
           <button onClick={() => (window.location.href = "/")}>
@@ -39,7 +41,7 @@ const PricingTable = () => {
             <CloseIcon fontSize="large" />
           </button>
         </div>
-        <nav style={{ zIndex: 1 }}  >
+        <nav style={{ zIndex: 1 }}>
           <ul>
             <li className="mb-4">
               <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
@@ -55,7 +57,7 @@ const PricingTable = () => {
             <li className="mb-4">
               <button className="w-full text-left h-30 p-2 rounded hover:bg-orange-300">
                 <div
-                  onClick={() => (window.location.href = "/loader")}
+                  onClick={() => (window.location.href = "/home")}
                   className="flex flex-col items-center"
                 >
                   <ExploreIcon />
@@ -103,7 +105,7 @@ const PricingTable = () => {
                   className="flex flex-col items-center"
                 >
                   <UpgradeIcon />
-                  <p className="text-yellow-600 font-bold">  Upgrade</p>
+                  <p className="text-yellow-600 font-bold"> Upgrade</p>
                 </div>
               </button>
             </li>
@@ -129,7 +131,10 @@ const PricingTable = () => {
               checked={isYearly}
               onChange={() => setIsYearly(!isYearly)}
             />
-            <div style={{ zIndex: 0 }} className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <div
+              style={{ zIndex: 0 }}
+              className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+            ></div>
           </label>
           <span className="ml-2">Yearly</span>
         </div>
@@ -234,9 +239,14 @@ const PricingTable = () => {
             <p className="text-center mb-6">
               per license, per month, charged {isYearly ? "yearly" : "monthly"}
             </p>
-            <button className="bg-purple-500 text-white py-2 px-4 rounded w-full mb-4">
-              Contact Us
-            </button>
+            <Link to="/credit">
+              <button className="bg-purple-500 text-white py-2 px-4 rounded w-full mb-4">
+                Upgrade
+              </button>
+            </Link>
+            {/* <button className="bg-purple-500 text-white py-2 px-4 rounded w-full mb-4">
+              Upgrade
+            </button> */}
             <ul className="text-left">
               <li className="mb-2">
                 <span role="img" aria-label="check">

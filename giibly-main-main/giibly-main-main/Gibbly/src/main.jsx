@@ -22,23 +22,22 @@ import Register from "./Pages/Register.jsx";
 import CreditCard from "./Pages/CreditCard.jsx";
 
 const AppWrapper = () => {
-  let [enable, setenable] = useState(true)
+  let [flag, setflag] = useState(false);
+  let [enable, setenable] = useState(true);
 
   useEffect(() => {
     document.querySelectorAll("button").forEach((ele) => {
-      console.log(ele)
+      console.log(ele);
       ele.addEventListener("click", (event) => {
-        console.log(1)
-        let utterance = new SpeechSynthesisUtterance(`${event.target.innerText}`);
-        console.log(utterance)
-        speechSynthesis.speak(utterance) 
-        
-      })
+        console.log(1);
+        let utterance = new SpeechSynthesisUtterance(
+          `${event.target.innerText}`
+        );
+        console.log(utterance);
+        if (flag) speechSynthesis.speak(utterance);
+      });
     });
-    
-
-
-  }, []);
+  }, [flag]);
 
   return (
     <BrowserRouter>
