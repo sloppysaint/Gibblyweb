@@ -1,5 +1,6 @@
 const express = require("express");
 const usermodel = require("./model/user");
+const userModel = require("./model/users");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const updatedata = require("./functions/updatedata");
@@ -41,7 +42,7 @@ app.post("/add/manually", async (req, res) => {
   }
 });
 
-app.get("/api/teacherquestion" , async (req, res) => {
+app.get("/api/teacherquestion", async (req, res) => {
   try {
     const { username, title } = req.cookies;
 
@@ -49,7 +50,7 @@ app.get("/api/teacherquestion" , async (req, res) => {
       specificusername: username,
       title,
     });
-    
+
     res.json(userData);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -68,16 +69,13 @@ app.get("/pdf", async (req, res) => {
 
     doc = new PDFDocument();
 
-    doc.pipe(
-      fs.createWriteStream("../Gibbly/public/output.pdf")
-    ); // would have to change the path
+    doc.pipe(fs.createWriteStream("../Gibbly/public/output.pdf")); // would have to change the path
 
     doc.fontSize(35).text(title, {
       align: "center",
       underline: true,
     });
 
-  
     let yPosition = 150;
 
     questions.forEach(({ question, mcq }) => {
@@ -86,19 +84,82 @@ app.get("/pdf", async (req, res) => {
 
       mcq.forEach((ele, index) => {
         doc.fontSize(15).text(`${index + 1}. ${ele}`, 70, yPosition);
-        yPosition += 20; 
+        yPosition += 20;
       });
 
-      yPosition += 20; 
+      yPosition += 20;
     });
 
     doc.end();
-    res.json({success:true})
+    res.json({ success: true });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
+app.post("/register", async (req, res) => {
+  try {
+    // check if user already exists
+    const userExists = await userModel.findOne({ email: req.body.email });
+    if (userExists) {
+      return res
+        .status(200)
+        .send({ message: "User already exists", success: false });
+    }
 
+    // hash password
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    // req.body.password = hashedPassword;
+
+    // create new user
+    const newUser = new userModel(req.body);
+    await newUser.save();
+    res.send({
+      message: "User created successfully",
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+      data: error,
+      success: false,
+    });
+  }
+});
+
+// user login
+
+app.post("/login", async (req, res) => {
+  try {
+    // check if user exists
+    const user = await userModel.findOne({ email: req.body.email });
+    if (!user) {
+      return res
+        .status(200)
+        .send({ message: "User does not exist", success: false });
+    }
+
+    // check password
+    const validPassword = req.body.password;
+
+    if (!validPassword) {
+      return res
+        .status(200)
+        .send({ message: "Invalid password", success: false });
+    }
+
+    res.send({
+      message: "User logged in successfully",
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+      data: error,
+      success: false,
+    });
+  }
+});
 app.listen(3000, () => {
   console.log("server is connected");
 });

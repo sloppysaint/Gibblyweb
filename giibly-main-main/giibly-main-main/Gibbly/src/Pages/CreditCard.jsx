@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import chipImage from './chip.png';
 import visaImage from './visa.png';
 
 const CreditCard = () => {
+  const location = useLocation();
+  console.log('Location state:', location.state);
+  const { price, isYearly } = location.state || {};
+
   const [cardNumber, setCardNumber] = useState('');
   const [cardHolder, setCardHolder] = useState('');
   const [expMonth, setExpMonth] = useState('month');
@@ -113,6 +118,15 @@ const CreditCard = () => {
     height: '50px',
   };
 
+  const billingInfoStyle = {
+    textAlign: 'center',
+    color: '#bbb',  
+    paddingTop: '8px',
+    display: 'block',
+    fontSize: '18px',
+    //marginBottom: '-150px',
+  };
+
   return (
     <div style={containerStyle}>
       <div style={cardContainerStyle}>
@@ -145,6 +159,7 @@ const CreditCard = () => {
           </div>
         </div>
       </div>
+      
       <form style={formStyle}>
         <div style={inputBoxStyle}>
           <span style={labelStyle}>Card Number</span>
@@ -210,12 +225,18 @@ const CreditCard = () => {
             />
           </div>
         </div>
+          
+        <div style={billingInfoStyle}>
+          Billing Amount: {price} {isYearly ? 'CAD (Yearly)' : 'CAD'}
+        </div>
+
         <input
           type="submit"
           value="Submit"
           style={submitBtnStyle}
         />
       </form>
+      
     </div>
   );
 };

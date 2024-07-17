@@ -1,16 +1,33 @@
-import { React, useState } from "react";
-import { Form, Input, message } from "antd";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-function Register() {
-  let [text, setText] = useState("password")
+import React, { useState } from "react";
+import { Form, Input, message, Select, Button } from "antd";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import axios from "axios"; // Import axios
 
-  const onFinish = (values) => {
-    if (values.name && values.email && values.password) {
-      console.log("Registration successful:", values);
-      message.success("Registration successful");
-    } else {
-      console.log("Registration unsuccessful:", values);
-      message.error("Registration unsuccessful: Please fill in all fields");
+function Register() {
+  const [text, setText] = useState("password");
+
+  const onFinish = async (values) => {
+    try {
+      if (values.name && values.email && values.password && values.role) {
+        // Send a POST request to the server
+        const response = await axios.post(
+          "http://localhost:3000/register",
+          values
+        );
+
+        if (response.data.success) {
+          message.success("Registration successful");
+          // Redirect to login page
+          window.location.href = "/pages/Login";
+        } else {
+          message.error(response.data.message || "Registration unsuccessful");
+        }
+      } else {
+        message.error("Registration unsuccessful: Please fill in all fields");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      message.error("Registration unsuccessful: Server error");
     }
   };
 
@@ -25,19 +42,33 @@ function Register() {
           </div>
           <div className="border-b-2 border-orange-500 my-4"></div>
           <Form layout="vertical" className="mt-4" onFinish={onFinish}>
-            <Form.Item name="name" label="Name">
+            <Form.Item
+              name="name"
+              label="Name"
+              rules={[{ required: true, message: "Please input your name!" }]}
+            >
               <Input
                 type="text"
                 className="border-2 border-orange-500 rounded p-2 focus:border-orange-700"
               />
             </Form.Item>
-            <Form.Item name="email" label="Email">
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[{ required: true, message: "Please input your email!" }]}
+            >
               <Input
-                type="text"
+                type="email"
                 className="border-2 border-orange-500 rounded p-2 focus:border-orange-700"
               />
             </Form.Item>
-            <Form.Item name="password" label="Password">
+            <Form.Item
+              name="password"
+              label="Password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
               <div style={{ display: "flex" }}>
                 <Input
                   type={text}
@@ -47,33 +78,44 @@ function Register() {
                   type="button"
                   style={{ width: "70px" }}
                   className="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition duration-300"
-                  onClick={() => (setText("text"))}
+                  onClick={() =>
+                    setText(text === "password" ? "text" : "password")
+                  }
                 >
                   <VisibilityIcon />
                 </button>
               </div>
             </Form.Item>
 
-
-            <select
-
-              className="w-52 border border-gray-200 shadow-md p-2 rounded"
+            <Form.Item
+              name="role"
+              label="Role"
+              rules={[{ required: true, message: "Please select a role!" }]}
             >
-              <option value="EN" className="text-black">Student</option>
-              <option value="IT" className="text-black">Teacher</option>
-
-            </select>
+              <Select
+                className="w-full border border-gray-200 shadow-md p-2 rounded"
+                placeholder="Select a role"
+              >
+                <Select.Option value="Student" className="text-black">
+                  Student
+                </Select.Option>
+                <Select.Option value="Teacher" className="text-black">
+                  Teacher
+                </Select.Option>
+              </Select>
+            </Form.Item>
 
             <div className="flex justify-center mt-4">
-              <button
-                type="submit"
+              <Button
+                type="primary"
+                htmlType="submit"
                 className="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition duration-300"
-                onClick={() => (window.location.href = "/pages/Login")}
               >
                 Register
-              </button>
+              </Button>
             </div>
             <button
+              className="mt-2 text-orange-500 hover:text-orange-700"
               onClick={() => {
                 window.location.href = "/pages/Login";
               }}
