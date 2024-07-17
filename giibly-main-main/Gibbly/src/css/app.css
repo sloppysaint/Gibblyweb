@@ -1,0 +1,63 @@
+/* #root {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+} */
+
+#create {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row
+}
+
+@media only screen and (max-width: 1390px) {
+
+    #cardcontainer {
+        width: 35vh;
+
+    }
+}
+
+@media only screen and (max-width: 977px) {
+
+   
+
+
+    #create {
+       
+        display: flex;
+        flex-direction: column !important;
+        row-gap: 70vh;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        right: 10vw;
+    }
+
+    #buttoncontainer{
+        position: relative;
+        left: 60px !important;
+    }
+}
+
+
+@media only screen and (max-width: 445px) {
+
+
+    #create {
+
+
+        position: relative;
+        right: 30vw;
+    }
+
+    #buttoncontainer {
+        top: 1vh;
+        left:70px !important;
+    }
+}

@@ -1,0 +1,55 @@
+#container {
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+#root {
+    background-color: white !important;
+}
+
+
+
+
+#popover {
+    z-index: 1;
+    width: 66vw;
+    height: 40vh;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 10px;
+    box-shadow: rgba(14, 13, 13, 0.5) 10px 10px, rgba(0, 0, 0, 0.4) 15px 15px, rgba(14, 13, 13, 0.3) 20px 20px;
+    background-color: whitesmoke;
+
+}
+
+
+@media only screen and (max-width: 895px) {
+
+    .manually {
+        width: 50% !important;
+    }
+
+}
+
+@media only screen and (max-width: 594px) {
+
+
+    #popover {
+        width: 90vw !important;
+        flex-shrink: 10px;
+    }
+
+    .manually {
+
+        width: 30% !important;
+
+    }
+
+
+}
+
