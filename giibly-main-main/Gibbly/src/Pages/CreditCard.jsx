@@ -120,10 +120,18 @@ const CreditCard = () => {
 
   const billingInfoStyle = {
     textAlign: 'center',
+<<<<<<< HEAD:giibly-main-main/Gibbly/src/Pages/CreditCard.jsx
     color: '#bbb',
     paddingTop: '8px',
     display: 'block',
     fontSize: '18px',
+=======
+    color: '#bbb',  
+    paddingTop: '8px',
+    display: 'block',
+    fontSize: '18px',
+    //marginBottom: '-150px',
+>>>>>>> 7718466bec3e98c9840d1addb229f1bd038def8a:giibly-main-main/giibly-main-main/Gibbly/src/Pages/CreditCard.jsx
   };
 
   return (
@@ -225,8 +233,13 @@ const CreditCard = () => {
           </div>
         </div>
           
+<<<<<<< HEAD:giibly-main-main/Gibbly/src/Pages/CreditCard.jsx
         <div className = "font-bold text-black"style={billingInfoStyle}>
           Billing Amount: {price} {isYearly ? 'CAD (Yearly)' : <span className = "font-bold text-black">11.99 CAD</span>}
+=======
+        <div style={billingInfoStyle}>
+          Billing Amount: {price} {isYearly ? 'CAD (Yearly)' : 'CAD'}
+>>>>>>> 7718466bec3e98c9840d1addb229f1bd038def8a:giibly-main-main/giibly-main-main/Gibbly/src/Pages/CreditCard.jsx
         </div>
 
         <input
