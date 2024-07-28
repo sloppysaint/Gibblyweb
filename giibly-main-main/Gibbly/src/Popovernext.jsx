@@ -34,7 +34,7 @@ export default function Popovernext() {
 
 
     return (
-        <div id="popovernext" style={{ display: visibility ? "flex" : "none" }}>
+        <div id="popovernext" style={{ display: visibility ? "flex" : "none", backgroundColor:"orange" }}>
             <div id='popover' style={{ display: visibility ? "flex" : "none", border: "1px solid black", flexDirection: "column", height: "68vh" }}>
                 <Popovertop />
                 <div className="container" style={{ display: "flex", flexDirection: "column", width: "60vw", justifyContent: "center", alignItems: "center", rowGap: "10px", position: "relative", left: "20px", top: "-10px" }}>

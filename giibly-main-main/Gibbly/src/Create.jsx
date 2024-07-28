@@ -38,7 +38,7 @@ function Create() {
                         
                         window.location.href="/pdf"}}
                     >Pdf</button>
-                    <button onClick={()=>{window.location.href="/loader"}} style={{ minheight: "4vh", width: "90px", border: "none",backgroundColor: "orange",borderRadius:"12px" ,fontWeight: "bolder", }}>Share</button>
+                    
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
                       { arrayofquestions.map(({question ,mcq},index)=>{

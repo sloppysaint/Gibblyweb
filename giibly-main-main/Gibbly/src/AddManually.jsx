@@ -71,6 +71,7 @@ function AddManually() {
     };
 
     return (
+        <div style={{backgroundColor: "orange", height:"100vh"}}>
         <form onSubmit={handleSubmit} style={formStyle} >
             <label style={labelStyle}>How many questions do you want?</label>
             <input
@@ -86,6 +87,7 @@ function AddManually() {
 
             <button type='submit' onClick={()=>{window.location.href="/creating"}}  style={buttonStyle}>Submit</button>
         </form>
+        </div>
     );
 }
 
