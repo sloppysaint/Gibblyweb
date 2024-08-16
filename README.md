@@ -1,4 +1,4 @@
-2. 🧑‍🏫 Gibbly Website 
+ 🧑‍🏫 Gibbly Website 
 
 An extensive design of the Gibbly website, where teachers can create quizzes and students can play them. This project is built using modern web technologies to enhance both functionality and user experience.
 
@@ -15,7 +15,6 @@ Technologies Used:
     Node.js
     MongoDB
 
-🔗 View the Project | 💻 View the Code
 💡 Key Features
 
     Responsive UI: Both projects feature a responsive design, ensuring optimal user experience across all devices.
