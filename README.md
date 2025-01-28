@@ -17,6 +17,6 @@ Technologies Used:
 
 💡 Key Features
 
-    Responsive UI: Both projects feature a responsive design, ensuring optimal user experience across all devices.
-    Scalability: Built with scalability in mind, these projects are designed to handle a growing number of users and features.
+    Responsive UI: This project features a responsive design, ensuring optimal user experience across all devices.
+    Scalability: Built with scalability in mind, this project is designed to handle a growing number of users and features.
     Modern Technologies: Leveraging the power of React, Tailwind CSS, and Node.js for fast and efficient development.
